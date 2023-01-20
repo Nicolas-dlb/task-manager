@@ -3,9 +3,14 @@ export type ItemT = {
 	id: string;
 };
 
-interface useHooksT {
+export interface useHooksT {
 	items: ItemT[];
 	createItem: (itemData: ItemT) => Promise<void>;
 	deleteItem: (id: string) => void;
 	setItems: Dispatch<SetStateAction<ItemT[]>>;
+}
+
+export interface ThemeContextI {
+	theme: string;
+	setTheme: (theme: string) => void;
 }

@@ -1,0 +1,13 @@
+[data-theme="dark"] {
+	--main-bg-color: var(--very-dark-grey);
+	--secondary-bg-color: var(--dark-grey);
+	--text-color: var(--white);
+	--lines-color: var(--lines-dark);
+}
+
+[data-theme="light"] {
+	--main-bg-color: var(--light-grey);
+	--secondary-bg-color: var(--white);
+	--text-color: var(--black);
+	--lines-color: var(--lines-light);
+}

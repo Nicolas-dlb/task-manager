@@ -1,0 +1,25 @@
+.board-title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	width: 100%;
+	transition: transform 0.2s ease;
+	gap: 5px;
+	h2 {
+		font-weight: bold;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.board-title {
+		pointer-events: none;
+		img {
+			display: none;
+		}
+
+		&.sidebar-open {
+			transform: translateX(230px);
+		}
+	}
+}

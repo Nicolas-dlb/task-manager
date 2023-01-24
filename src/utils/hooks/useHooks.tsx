@@ -1,5 +1,5 @@
 import { useState } from "react";
-import uniqueId from "../helpers/helpers";
+import { uniqueId } from "../helpers/helpers";
 import { ItemT, useHooksT } from "../types/types";
 
 export default function useHooks(): useHooksT {

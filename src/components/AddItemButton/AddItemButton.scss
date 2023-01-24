@@ -1,0 +1,32 @@
+.btn-add-item {
+	background-color: var(--purple);
+	border: none;
+	border-radius: 24px;
+	width: 48px;
+	height: 32px;
+	cursor: pointer;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+	color: var(--white);
+	font-family: "Plus Jakarta Sans";
+	font-weight: bold;
+
+	&.button-add-task h3 {
+		display: none;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.btn-add-item {
+		display: flex;
+		width: 154px;
+		height: 45px;
+		align-items: center;
+
+		&.button-add-task h3 {
+			display: inline-block;
+			font-size: 14px;
+		}
+	}
+}

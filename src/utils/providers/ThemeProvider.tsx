@@ -4,7 +4,7 @@ import { ThemeContextI } from "../types/types";
 
 export const ThemeContext = createContext<ThemeContextI>({
 	theme: "dark",
-	setTheme: (theme: string) => {},
+	switchTheme: () => {},
 });
 
 function ThemeProvider({ children }: { children: ReactNode }) {
@@ -13,8 +13,11 @@ function ThemeProvider({ children }: { children: ReactNode }) {
 		"theme",
 		defaultDark ? "dark" : "light"
 	);
+
+	const switchTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+
 	return (
-		<ThemeContext.Provider value={{ theme, setTheme }}>
+		<ThemeContext.Provider value={{ theme, switchTheme }}>
 			{children}
 		</ThemeContext.Provider>
 	);

@@ -12,5 +12,5 @@ export interface useHooksT {
 
 export interface ThemeContextI {
 	theme: string;
-	setTheme: (theme: string) => void;
+	switchTheme: () => void;
 }

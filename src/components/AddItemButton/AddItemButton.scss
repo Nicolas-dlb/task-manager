@@ -15,6 +15,11 @@
 	&.button-add-task h3 {
 		display: none;
 	}
+
+	&:disabled {
+		opacity: 0.3;
+		pointer-events: none;
+	}
 }
 
 @media only screen and (min-width: 768px) {

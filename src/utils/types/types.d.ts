@@ -20,19 +20,29 @@ export interface SidebarContextI {
 	setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-type taskI = {
+export interface BoardsContextI {
+	boards: BoardI[] | null;
+	setBoards: Dispatch<SetStateAction<BoardI[]>>;
+	selectedBoard: BoardI | null;
+	setSelectedBoard: Dispatch<SetStateAction<BoardI | null>>;
+}
+
+type taskT = {
 	title: string;
 	description: string;
 	status: string;
-	subtasks: subtasksI[];
+	subtasks: subtasksT[];
 };
 
-type subtasksI = {
+type subtasksT = {
 	title: string;
 	isCompleted: boolean;
 };
-
+type ColumnT = {
+	name: string;
+	tasks: TaskT[];
+};
 export interface BoardI {
 	name: string;
-	tasks: TaskI[];
+	columns: columnT[];
 }

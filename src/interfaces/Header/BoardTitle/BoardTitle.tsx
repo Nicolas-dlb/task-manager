@@ -7,10 +7,11 @@ import { BoardsContext } from "../../../utils/providers/BoardsProviders";
 function BoardTitle() {
 	const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
 	const { selectedBoard } = useContext(BoardsContext);
+
 	return (
 		<div
 			onClick={() => setIsSidebarOpen((prev: boolean) => !prev)}
-			className="board-title"
+			className={`board-title ${isSidebarOpen && "sidebar-open"}`}
 		>
 			<h2>{selectedBoard?.name || "Boards empty"}</h2>
 			<img

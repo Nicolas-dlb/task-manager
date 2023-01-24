@@ -1,0 +1,34 @@
+.btn-hide-sidebar {
+	display: none;
+}
+@media only screen and (min-width: 768px) {
+	.btn-hide-sidebar {
+		cursor: pointer;
+		display: flex;
+		padding: 10px;
+		padding-left: 20px;
+		margin-top: 20px;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+		border: none;
+		outline: none;
+		width: 90%;
+		background: none;
+		color: var(--medium-grey);
+		h4 {
+			font-size: 13px;
+			font-family: "Plus Jakarta Sans";
+		}
+		svg {
+			margin-right: 10px;
+		}
+
+		&:hover {
+			color: var(--purple);
+			background-color: var(--white);
+			svg path {
+				fill: var(--purple);
+			}
+		}
+	}
+}

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./interfaces/App/App";
 import reportWebVitals from "./reportWebVitals";
+import BoardsProvider from "./utils/providers/BoardsProviders";
 import SidebarProvider from "./utils/providers/SidebarProvider";
 import ThemeProvider from "./utils/providers/ThemeProvider";
 
@@ -11,11 +12,13 @@ const root = ReactDOM.createRoot(
 );
 root.render(
 	<React.StrictMode>
-		<SidebarProvider>
-			<ThemeProvider>
-				<App />
-			</ThemeProvider>
-		</SidebarProvider>
+		<ThemeProvider>
+			<SidebarProvider>
+				<BoardsProvider>
+					<App />
+				</BoardsProvider>
+			</SidebarProvider>
+		</ThemeProvider>
 	</React.StrictMode>
 );
 

@@ -1,0 +1,27 @@
+.switch {
+	background-color: var(--purple);
+	width: 35px;
+	height: 15px;
+	padding: 3px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	&.light-selected {
+		justify-content: flex-start;
+	}
+
+	&.dark-selected {
+		justify-content: flex-end;
+	}
+
+	.btn-switch {
+		border-radius: 50%;
+		width: 15px;
+		height: 15px;
+		border: none;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+}

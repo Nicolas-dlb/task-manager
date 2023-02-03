@@ -10,33 +10,18 @@ export interface useHooksT {
 	setItems: Dispatch<SetStateAction<ItemT[]>>;
 }
 
-export interface ThemeContextI {
-	theme: string;
-	switchTheme: () => void;
-}
-
-export interface SidebarContextI {
-	isSidebarOpen: boolean;
-	setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
-}
-
-export interface BoardsContextI {
-	boards: BoardI[] | null;
-	setBoards: Dispatch<SetStateAction<BoardI[]>>;
-	selectedBoard: BoardI | null;
-	setSelectedBoard: Dispatch<SetStateAction<BoardI | null>>;
-}
-
-type taskT = {
+type TaskT = {
 	title: string;
 	description: string;
 	status: string;
 	subtasks: subtasksT[];
+	id: string;
 };
 
 type subtasksT = {
 	title: string;
 	isCompleted: boolean;
+	id: string;
 };
 type ColumnT = {
 	name: string;
@@ -44,5 +29,5 @@ type ColumnT = {
 };
 export interface BoardI {
 	name: string;
-	columns: columnT[];
+	columns: ColumnT[];
 }

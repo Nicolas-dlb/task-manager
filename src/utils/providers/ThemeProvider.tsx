@@ -1,6 +1,10 @@
 import { createContext, ReactNode } from "react";
 import useLocalStorage from "use-local-storage";
-import { ThemeContextI } from "../types/types";
+
+interface ThemeContextI {
+	theme: string;
+	switchTheme: () => void;
+}
 
 export const ThemeContext = createContext<ThemeContextI>({
 	theme: "dark",

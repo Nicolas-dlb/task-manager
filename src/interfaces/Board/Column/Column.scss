@@ -1,0 +1,38 @@
+.column {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: center;
+	min-width: 350px;
+	max-width: 350px;
+
+	.column-title-wrapper {
+		display: flex;
+		align-items: center;
+		color: var(--medium-grey);
+		margin-bottom: 25px;
+
+		.column-title-color {
+			&.color-0 {
+				background-color: #49c4e5;
+			}
+
+			&.color-1 {
+				background-color: #8471f2;
+			}
+
+			&.color-2 {
+				background-color: #67e2ae;
+			}
+
+			border-radius: 50%;
+			margin-right: 10px;
+			width: 12px;
+			height: 12px;
+		}
+
+		.column-title {
+			font-size: 13px;
+		}
+	}
+}

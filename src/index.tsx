@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import "./index.scss";
 import App from "./interfaces/App/App";
 import reportWebVitals from "./reportWebVitals";
-import BoardsProvider from "./utils/providers/BoardsProviders";
+import BoardsProvider from "./utils/providers/BoardsProvider";
+import ModalProvider from "./utils/providers/ModalProvider";
 import SidebarProvider from "./utils/providers/SidebarProvider";
 import ThemeProvider from "./utils/providers/ThemeProvider";
 
@@ -15,7 +16,9 @@ root.render(
 		<ThemeProvider>
 			<SidebarProvider>
 				<BoardsProvider>
-					<App />
+					<ModalProvider>
+						<App />
+					</ModalProvider>
 				</BoardsProvider>
 			</SidebarProvider>
 		</ThemeProvider>

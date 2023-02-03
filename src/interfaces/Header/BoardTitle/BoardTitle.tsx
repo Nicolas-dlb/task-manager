@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { SidebarContext } from "../../../utils/providers/SidebarProvider";
 import chevronDown from "../../../assets/icon-chevron-down.svg";
 import "./BoardTitle.scss";
-import { BoardsContext } from "../../../utils/providers/BoardsProviders";
+import { BoardsContext } from "../../../utils/providers/BoardsProvider";
 
 function BoardTitle() {
 	const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);

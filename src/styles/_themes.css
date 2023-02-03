@@ -3,6 +3,8 @@
 	--secondary-bg-color: var(--dark-grey);
 	--text-color: var(--white);
 	--lines-color: var(--lines-dark);
+	--label-color: var(--white);
+	--btn-color: var(--white);
 }
 
 [data-theme="light"] {
@@ -10,4 +12,6 @@
 	--secondary-bg-color: var(--white);
 	--text-color: var(--black);
 	--lines-color: var(--lines-light);
+	--label-color: var(--medium-grey);
+	--btn-color: rgb(99, 95, 199, 10%);
 }

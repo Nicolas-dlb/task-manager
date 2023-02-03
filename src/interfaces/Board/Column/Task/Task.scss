@@ -1,0 +1,13 @@
+.task {
+	background-color: var(--secondary-bg-color);
+	width: 80%;
+	padding: 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	margin: 5px;
+
+	.task-name {
+		margin-bottom: 5px;
+	}
+}

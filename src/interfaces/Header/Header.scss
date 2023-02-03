@@ -10,6 +10,7 @@ header {
 	position: absolute;
 	border-bottom: 1px transparent solid;
 	transition: all 0.2s ease;
+	z-index: 1;
 
 	.header-content {
 		display: flex;
@@ -37,8 +38,6 @@ header {
 	}
 
 	.vertical-ellipsis {
-		height: 16px;
-		width: 3.6px;
 		padding: 2px;
 		cursor: pointer;
 	}
@@ -47,6 +46,7 @@ header {
 @media only screen and (min-width: 768px) {
 	header {
 		border-bottom: 1px var(--lines-color) solid;
+		z-index: 0;
 
 		.logo {
 			display: none;

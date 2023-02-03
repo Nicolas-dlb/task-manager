@@ -1,5 +1,15 @@
-import { createContext, ReactNode, useState } from "react";
-import { SidebarContextI } from "../types/types";
+import {
+	createContext,
+	ReactNode,
+	useState,
+	Dispatch,
+	SetStateAction,
+} from "react";
+
+interface SidebarContextI {
+	isSidebarOpen: boolean;
+	setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
+}
 
 export const SidebarContext = createContext<SidebarContextI>({
 	isSidebarOpen: false,

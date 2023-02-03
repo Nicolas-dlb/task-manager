@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ReactComponent as BoardIcon } from "../../../assets/icon-board.svg";
-import { BoardsContext } from "../../../utils/providers/BoardsProviders";
+import { BoardsContext } from "../../../utils/providers/BoardsProvider";
 import "./Menu.scss";
 
 function Menu() {

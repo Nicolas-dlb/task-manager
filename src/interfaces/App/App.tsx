@@ -1,28 +1,22 @@
 import { useContext } from "react";
 import Modal from "../../components/Modal/Modal";
-import useWindowSize from "../../utils/hooks/useWindowSize";
-import { SidebarContext } from "../../utils/providers/SidebarProvider";
+import { ModalContext } from "../../utils/providers/ModalProvider";
 import { ThemeContext } from "../../utils/providers/ThemeProvider";
+import Board from "../Board/Board";
 import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
 import "./App.css";
 
 function App(): JSX.Element {
 	const { theme } = useContext(ThemeContext);
-	const { isSidebarOpen } = useContext(SidebarContext);
-	const { width } = useWindowSize();
-	const isMobile = width < 768;
+	const { modalComponent } = useContext(ModalContext);
 
 	return (
 		<div className="app" data-theme={theme}>
-			{isMobile && isSidebarOpen ? (
-				<Modal>
-					<Sidebar />
-				</Modal>
-			) : (
-				<Sidebar />
-			)}
+			<Sidebar />
 			<Header />
+			<Board />
+			{modalComponent && <Modal>{modalComponent}</Modal>}
 		</div>
 	);
 }

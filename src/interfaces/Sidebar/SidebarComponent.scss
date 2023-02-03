@@ -10,6 +10,7 @@
 	width: 100%;
 	max-width: 264px;
 	transition: all 0.2s ease;
+	z-index: 0;
 
 	#logo {
 		display: none;
@@ -35,9 +36,8 @@
 		width: 230px;
 		border-radius: 0;
 		height: 100%;
-
 		padding: 0;
-		z-index: 100;
+		z-index: 2;
 		border-right: 1px solid var(--lines-color);
 
 		h3 {
@@ -59,11 +59,11 @@
 
 		#logo {
 			display: inline-block;
-			color: var(--text-color);
 
 			#logo-name {
 				fill: var(--text-color);
 				scale: 0.9;
+				transition: all 0.2s ease;
 			}
 		}
 		.sidebar-logo {

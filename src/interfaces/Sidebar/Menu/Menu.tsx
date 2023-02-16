@@ -1,31 +1,31 @@
-import React, { useContext } from "react";
-import { ReactComponent as BoardIcon } from "../../../assets/icon-board.svg";
+import { useCallback, useContext } from "react";
+import CreateBoard from "../../../components/Modal/CreateBoard/CreateBoard";
 import { BoardsContext } from "../../../utils/providers/BoardsProvider";
+import { ModalContext } from "../../../utils/providers/ModalProvider";
+import Link from "./Link/Link";
 import "./Menu.scss";
 
 function Menu() {
-	const { selectedBoard, setSelectedBoard, boards } = useContext(BoardsContext);
+	const { boards, setSelectedBoard } = useContext(BoardsContext);
+	const { setModalComponent } = useContext(ModalContext);
+
+	const openCreateBoardModal = useCallback(
+		() => setModalComponent(<CreateBoard />),
+		[setModalComponent]
+	);
 
 	return (
 		<div className="menu">
 			<h4 className="menu-title">ALL BOARDS ({boards?.length})</h4>
 			<nav>
-				{boards?.map((board: any, index) => (
-					<button
+				{boards?.map((board) => (
+					<Link
+						key={board.id}
 						onClick={() => setSelectedBoard(board)}
-						key={index.toString()}
-						className={`menu-item ${
-							selectedBoard?.name === board.name && "active"
-						}`}
-					>
-						<BoardIcon />
-						<h3>{board.name}</h3>
-					</button>
+						board={board}
+					/>
 				))}
-				<button className="menu-item btn-create-board">
-					<BoardIcon />
-					<h3>+ Create new board</h3>
-				</button>
+				<Link onClick={openCreateBoardModal} />
 			</nav>
 		</div>
 	);

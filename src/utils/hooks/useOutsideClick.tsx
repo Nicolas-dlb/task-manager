@@ -1,11 +1,18 @@
-import { useEffect, useRef } from "react";
+import { RefObject, useEffect, useRef } from "react";
 
-const useOutsideClick = (callback: () => void) => {
+const useOutsideClick = (
+	callback: () => void,
+	targetToAvoid?: RefObject<HTMLElement>
+) => {
 	const ref = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		const handleClick = (event: MouseEvent) => {
-			if (ref.current && !ref.current.contains(event.target as Node)) {
+			if (
+				ref.current &&
+				!ref.current.contains(event.target as Node) &&
+				event.target !== targetToAvoid?.current
+			) {
 				callback();
 			}
 		};
@@ -15,7 +22,7 @@ const useOutsideClick = (callback: () => void) => {
 		return () => {
 			document.removeEventListener("click", handleClick, true);
 		};
-	}, [ref, callback]);
+	}, [ref, callback, targetToAvoid]);
 
 	return ref;
 };

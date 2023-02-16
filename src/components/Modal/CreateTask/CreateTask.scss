@@ -21,20 +21,7 @@
 		color: var(--label-color);
 	}
 
-	.create-task-input {
-		background: transparent;
-		border: 1px solid var(--lines-color);
-		outline: none;
-		border-radius: 3px;
-		color: var(--text-color);
-		padding: 7px 10px;
-		resize: none;
-		width: 100%;
-		box-sizing: border-box;
-		font-family: "Plus Jakarta Sans";
-	}
-
-	textarea {
+	.create-task-description {
 		height: 100px;
 	}
 
@@ -48,20 +35,6 @@
 			cursor: pointer;
 			margin-left: 10px;
 			scale: 0.9;
-		}
-	}
-
-	.btn-create-task {
-		width: 100%;
-		background-color: var(--purple);
-		border: none;
-		border-radius: 20px;
-		color: var(--white);
-		padding: 7px;
-		cursor: pointer;
-
-		h3 {
-			font-size: 13px;
 		}
 	}
 }

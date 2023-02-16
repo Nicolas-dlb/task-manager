@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import "./SidebarComponent.scss";
 import ThemeSwitch from "./ThemeSwitch/ThemeSwitch";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
@@ -13,17 +13,19 @@ function SidebarComponent() {
 	const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
 	const { width } = useWindowSize();
 	const isMobile = width < 768;
-	const ref = useOutsideClick(() => isMobile && setIsSidebarOpen(false));
+	const ref = useOutsideClick(
+		useCallback(
+			() => isMobile && setIsSidebarOpen(false),
+			[isMobile, setIsSidebarOpen]
+		)
+	);
 
 	if (isMobile && !isSidebarOpen) {
 		return null;
 	}
 
 	return (
-		<div
-			ref={ref}
-			className={`sidebar ${!isSidebarOpen && "close"} ${isMobile && "hidden"}`}
-		>
+		<div ref={ref} className={`sidebar ${!isSidebarOpen && "close"}`}>
 			<div className="sidebar-logo">
 				<Logo />
 			</div>

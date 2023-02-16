@@ -1,10 +1,10 @@
-.create-task-subtask {
+.removable-input {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: 100%;
 
-	.create-subtask-input {
+	.input {
 		background: transparent;
 		border: 1px solid var(--lines-color);
 		outline: none;
@@ -17,9 +17,10 @@
 		font-family: "Plus Jakarta Sans";
 	}
 
-	.create-task-delete-subtask {
+	.delete-icon {
 		cursor: pointer;
 		margin-left: 10px;
-		scale: 0.9;
+		scale: 0.75;
+		fill: #828fa3;
 	}
 }

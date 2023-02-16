@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { SidebarContext } from "../../../utils/providers/SidebarProvider";
 import { ReactComponent as ShowIcon } from "../../../assets/icon-show-sidebar.svg";
 import "./ButtonShowSidebar.scss";

@@ -1,0 +1,26 @@
+.create-board {
+	background-color: var(--secondary-bg-color);
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+	justify-content: center;
+	width: 80%;
+	border-radius: 5px;
+	max-width: 400px;
+	gap: 20px;
+
+	.property {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 7px;
+
+		.btn-add-item {
+			margin-top: 3px;
+		}
+
+		label {
+			font-size: 13px;
+		}
+	}
+}

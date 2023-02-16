@@ -1,7 +1,11 @@
 import React from "react";
 import "./Modal.scss";
 
-function Modal({ children }: { children: React.ReactNode }) {
+interface ModalProps {
+	children: React.ReactNode;
+}
+
+function Modal({ children }: ModalProps) {
 	return <div className="modal-container">{children}</div>;
 }
 

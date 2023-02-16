@@ -1,17 +1,23 @@
-import { useEffect, useState } from "react";
+import {
+	Dispatch,
+	SetStateAction,
+	useCallback,
+	useEffect,
+	useState,
+} from "react";
 import "./Dropdown.scss";
 import { ReactComponent as ChevronDown } from "../../assets/icon-chevron-down.svg";
 import useOutsideClick from "../../utils/hooks/useOutsideClick";
 
 interface DropdownProps {
 	selected: string;
-	setSelected: any;
-	options: any;
+	setSelected: Dispatch<SetStateAction<string>>;
+	options: string[];
 }
 
 function Dropdown({ selected, setSelected, options }: DropdownProps) {
 	const [isOpen, setIsOpen] = useState(false);
-	const [filteredOptions, setFilteredOptions] = useState<Crypto[]>();
+	const [filteredOptions, setFilteredOptions] = useState<string[]>([]);
 
 	const ref = useOutsideClick(() => setIsOpen(false));
 
@@ -19,24 +25,35 @@ function Dropdown({ selected, setSelected, options }: DropdownProps) {
 		if (options && !selected) setSelected(options[0]);
 
 		selected &&
-			setFilteredOptions(options?.filter((option: any) => option !== selected));
-	}, [options, selected]);
+			setFilteredOptions(options?.filter((option) => option !== selected));
+	}, [options, selected, setSelected]);
+
+	const selectOption = useCallback(
+		(option: string) => {
+			setSelected(option);
+			setIsOpen(false);
+		},
+		[setSelected]
+	);
+
+	const toggleMenu = useCallback(() => setIsOpen(!isOpen), [isOpen]);
 
 	return (
 		<div ref={ref} className="dropdown">
-			<button onClick={() => setIsOpen(!isOpen)} className="btn-dropdown">
+			<button
+				onClick={toggleMenu}
+				disabled={!filteredOptions.length}
+				className="btn-dropdown"
+			>
 				{selected}
 				<ChevronDown />
 			</button>
 			<div className={`dropdown-options ${isOpen && "open"}`}>
-				{filteredOptions?.map((option: any) => (
+				{filteredOptions?.map((option) => (
 					<button
 						key={option}
 						className="dropdown-option"
-						onClick={() => {
-							setSelected(option);
-							setIsOpen(false);
-						}}
+						onClick={() => selectOption(option)}
 					>
 						{option}
 					</button>

@@ -16,7 +16,8 @@
 		display: none;
 	}
 
-	&.btn-add-subtask {
+	&.btn-add-subtask,
+	&.btn-add-column {
 		width: 100%;
 		background-color: var(--btn-color);
 		color: var(--purple);
@@ -34,7 +35,7 @@
 		}
 	}
 
-	.button &:disabled {
+	&:disabled {
 		opacity: 0.3;
 		pointer-events: none;
 	}

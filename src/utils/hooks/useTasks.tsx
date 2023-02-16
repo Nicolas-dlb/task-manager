@@ -5,7 +5,7 @@ import { BoardI, TaskT } from "../types/types";
 function useTasks() {
 	const { selectedBoard, setSelectedBoard } = useContext(BoardsContext);
 
-	const createTask = (task: TaskT) => {
+	const addTask = (task: TaskT) => {
 		const newColumnIndex = selectedBoard?.columns.findIndex(
 			(column) => column.name === task.status
 		) as number;
@@ -42,7 +42,7 @@ function useTasks() {
 		}
 	};
 
-	return { createTask, editTask };
+	return { addTask, editTask };
 }
 
 export default useTasks;

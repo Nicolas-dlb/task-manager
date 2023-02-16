@@ -18,6 +18,10 @@
 		align-items: center;
 		color: var(--text-color);
 		font-family: "Plus Jakarta Sans";
+
+		&:disabled {
+			cursor: default;
+		}
 	}
 
 	.dropdown-options {

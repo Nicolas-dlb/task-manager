@@ -1,26 +1,22 @@
 import { ReactComponent as AddItemIcon } from "../../assets/icon-add-task-mobile.svg";
 import { stringUppercaseFirst } from "../../utils/helpers/helpers";
-import "./AddItemButton.scss";
+import "./ButtonAdd.scss";
 
-interface AddItemButtonProps {
+interface ButtonAddProps {
 	item: string;
-	classNames?: string;
+	className?: string;
 	disabled?: boolean;
 	onClick?: () => void;
 }
 
-function AddItemButton({
-	item,
-	classNames,
-	disabled,
-	onClick,
-}: AddItemButtonProps) {
+function ButtonAdd({ item, className, disabled, onClick }: ButtonAddProps) {
 	return (
 		<button
 			onClick={onClick}
 			disabled={disabled}
+			aria-label="Add task"
 			type="button"
-			className={`btn-add-item btn-add-${item} ${classNames}`}
+			className={`btn-add-item btn-add-${item} ${className}`}
 		>
 			<AddItemIcon />
 			<h3>Add New {stringUppercaseFirst(item)}</h3>
@@ -28,4 +24,4 @@ function AddItemButton({
 	);
 }
 
-export default AddItemButton;
+export default ButtonAdd;

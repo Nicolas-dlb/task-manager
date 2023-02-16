@@ -5,6 +5,8 @@
 	--lines-color: var(--lines-dark);
 	--label-color: var(--white);
 	--btn-color: var(--white);
+	--new-column-bg-color: #23242f;
+	--settings-bg-color: var(--main-bg-color);
 }
 
 [data-theme="light"] {
@@ -14,4 +16,6 @@
 	--lines-color: var(--lines-light);
 	--label-color: var(--medium-grey);
 	--btn-color: rgb(99, 95, 199, 10%);
+	--new-column-bg-color: #e9effa;
+	--settings-bg-color: var(--white);
 }

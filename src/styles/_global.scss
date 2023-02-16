@@ -1,0 +1,13 @@
+input[type="text"],
+textarea {
+	background: transparent;
+	border: 1px solid var(--lines-color);
+	outline: none;
+	border-radius: 3px;
+	color: var(--text-color);
+	padding: 7px 10px;
+	resize: none;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: "Plus Jakarta Sans";
+}

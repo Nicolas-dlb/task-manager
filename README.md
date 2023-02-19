@@ -15,7 +15,7 @@ To run the project follow these simple steps.
 1. Clone the repo
 
 ```sh
-git clone https://github.com/Nicolas-dlb/Starter-react-typescript
+git clone https://github.com/Nicolas-dlb/task-manager
 ```
 
 2. install dependances
@@ -44,7 +44,7 @@ npm test
 
 Nicolas Dubois - [@Linkedin](https://www.linkedin.com/in/nicolasdlb) - nicolas_db@outlook.fr
 
-Project Link: [https://github.com/Nicolas-dlb/Starter-react-typescript](https://github.com/Nicolas-dlb/task-manager)
+Project Link: [https://github.com/Nicolas-dlb/task-manager](https://github.com/Nicolas-dlb/task-manager)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

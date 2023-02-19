@@ -1,3 +1,9 @@
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
+
+[![task-manager][product-screenshot]](https://my-task-manager.web.app)
+
 ### Built With
 
 - React
@@ -49,16 +55,5 @@ Project Link: [https://github.com/Nicolas-dlb/task-manager](https://github.com/N
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/Nicolas-dlb/Coinlabs.svg?style=flat-square
-[contributors-url]: https://github.com/Nicolas-dlb/Coinlabs/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Nicolas-dlb/Coinlabs.svg?style=flat-square
-[forks-url]: https://github.com/Nicolas-dlb/Coinlabs/network/members
-[stars-shield]: https://img.shields.io/github/stars/Nicolas-dlb/Coinlabs.svg?style=flat-square
-[stars-url]: https://github.com/Nicolas-dlb/Coinlabs/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Nicolas-dlb/Coinlabs.svg?style=flat-square
-[issues-url]: https://github.com/Nicolas-dlb/Coinlabs/issues
-[license-shield]: https://img.shields.io/github/license/Nicolas-dlb/Coinlabs.svg?style=flat-square
-[license-url]: https://github.com/Nicolas-dlb/Coinlabs/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/nicolasdlb
-[product-screenshot]: ./src/assets/pictures/product-screenshot.png
+[product-screenshot]: ./src/assets/product-screenshot.png

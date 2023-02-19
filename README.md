@@ -44,7 +44,7 @@ npm test
 
 Nicolas Dubois - [@Linkedin](https://www.linkedin.com/in/nicolasdlb) - nicolas_db@outlook.fr
 
-Project Link: [https://github.com/Nicolas-dlb/Starter-react-typescript](https://github.com/Nicolas-dlb/Starter-react-typescript)
+Project Link: [https://github.com/Nicolas-dlb/Starter-react-typescript](https://github.com/Nicolas-dlb/task-manager)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->

@@ -45,6 +45,15 @@ function BoardsProvider({ children }: { children: ReactNode }) {
 			);
 	}, [boards]);
 
+	useEffect(() => {
+		setBoards((prev) =>
+			prev.map((board) => {
+				if (board.id === selectedBoard.id) return selectedBoard;
+				return board;
+			})
+		);
+	}, [selectedBoard]);
+
 	return (
 		<BoardsContext.Provider
 			value={{

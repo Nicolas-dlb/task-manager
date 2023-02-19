@@ -21,3 +21,8 @@ code {
 	margin: 0;
 	padding: 0;
 }
+
+[data-rbd-droppable-context-id],
+[data-rbd-drag-handle-context-id] {
+	width: 100%;
+}

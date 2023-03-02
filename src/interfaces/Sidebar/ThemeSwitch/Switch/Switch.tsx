@@ -6,7 +6,11 @@ function Switch() {
 	const { theme, switchTheme } = useContext(ThemeContext);
 	return (
 		<div className={`switch ${theme}-selected`}>
-			<button onClick={switchTheme} className="btn-switch" />
+			<button
+				aria-label="switch theme"
+				onClick={switchTheme}
+				className="btn-switch"
+			/>
 		</div>
 	);
 }

@@ -8,8 +8,9 @@ function ButtonShowSidebar() {
 	return (
 		<button
 			id="btn-show-Sidebar"
+			aria-label="show sidebar"
 			onClick={() => setIsSidebarOpen(true)}
-			className={`btn-show-sidebar ${!isSidebarOpen && "show"}`}
+			className={`btn-show-sidebar ${!isSidebarOpen ? "show" : ""}`}
 		>
 			<ShowIcon />
 		</button>

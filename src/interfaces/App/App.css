@@ -5,5 +5,4 @@
 	overflow: hidden;
 	color: var(--text-color);
 	background-color: var(--main-bg-color);
-	transition: background-color 0.2s ease;
 }

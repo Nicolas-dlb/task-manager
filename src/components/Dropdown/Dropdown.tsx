@@ -3,6 +3,7 @@ import {
 	SetStateAction,
 	useCallback,
 	useEffect,
+	useMemo,
 	useState,
 } from "react";
 import "./Dropdown.scss";
@@ -17,15 +18,15 @@ interface DropdownProps {
 
 function Dropdown({ selected, setSelected, options }: DropdownProps) {
 	const [isOpen, setIsOpen] = useState(false);
-	const [filteredOptions, setFilteredOptions] = useState<string[]>([]);
-
 	const ref = useOutsideClick(() => setIsOpen(false));
+
+	const filteredOptions = useMemo(
+		() => options?.filter((option) => option !== selected),
+		[options, selected]
+	);
 
 	useEffect(() => {
 		if (options && !selected) setSelected(options[0]);
-
-		selected &&
-			setFilteredOptions(options?.filter((option) => option !== selected));
 	}, [options, selected, setSelected]);
 
 	const selectOption = useCallback(

@@ -6,8 +6,12 @@
 
 	.delete-icon {
 		cursor: pointer;
-		margin-left: 10px;
+		margin-left: 5px;
 		scale: 0.75;
 		fill: #828fa3;
+		padding: 5px;
+		&:hover {
+			fill: var(--red);
+		}
 	}
 }

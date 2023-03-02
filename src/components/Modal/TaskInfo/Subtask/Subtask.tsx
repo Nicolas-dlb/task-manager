@@ -1,4 +1,10 @@
-import { useState, useEffect, SetStateAction, Dispatch } from "react";
+import {
+	useState,
+	useEffect,
+	SetStateAction,
+	Dispatch,
+	useCallback,
+} from "react";
 import useTasks from "../../../../utils/hooks/useTasks";
 import { SubtaskT, TaskT } from "../../../../utils/types/types";
 import "./Subtask.scss";
@@ -10,14 +16,10 @@ interface SubtaskProps {
 }
 
 function Subtask({ subtask, currentTask, setCurrentTask }: SubtaskProps) {
-	const [checked, setChecked] = useState(false);
+	const [checked, setChecked] = useState(subtask.isCompleted);
 	const { editTask } = useTasks();
-
-	useEffect(() => {
-		subtask.isCompleted && setChecked(subtask.isCompleted);
-	}, [subtask.isCompleted]);
-
-	const toggleCompleted = () => {
+	console.log("subtask render");
+	const toggleCompleted = useCallback(() => {
 		const newTask = {
 			...currentTask,
 			subtasks: currentTask?.subtasks.map((sub: SubtaskT) => {
@@ -30,13 +32,19 @@ function Subtask({ subtask, currentTask, setCurrentTask }: SubtaskProps) {
 		editTask(currentTask, newTask);
 		setChecked(!checked);
 		setCurrentTask(newTask);
-	};
+	}, [checked, currentTask, editTask, setCurrentTask, subtask.id]);
 
 	return (
-		<div className={`subtask ${checked && "checked"}`}>
-			<input type="checkbox" onChange={toggleCompleted} checked={checked} />
-			<h4>{subtask.title}</h4>
-		</div>
+		<button
+			aria-label="check subtask"
+			onClick={toggleCompleted}
+			className={`btn-subtask ${checked && "checked"}`}
+		>
+			<input type="checkbox" checked={checked} />
+			<span className="checkmark"></span>
+
+			<h4 className="subtask-title">{subtask.title}</h4>
+		</button>
 	);
 }
 

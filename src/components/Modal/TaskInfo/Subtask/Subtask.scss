@@ -1,17 +1,134 @@
-.subtask {
+.btn-subtask {
 	background-color: var(--main-bg-color);
 	border-radius: 4px;
 	display: flex;
 	padding: 10px;
-
+	cursor: pointer;
+	border: none;
+	color: inherit;
+	position: relative;
+	display: flex;
+	align-items: center;
+	font-family: inherit;
+	text-align: start;
 	&.checked {
 		text-decoration: line-through;
 		color: var(--medium-grey);
 	}
 
-	input {
-		accent-color: var(--purple);
-		padding: 3px;
-		margin-right: 10px;
+	input[type="checkbox"] {
+		visibility: hidden;
+		width: 0;
+		margin-right: 35px;
+	}
+
+	.checkmark {
+		position: absolute;
+		left: 5px;
+		margin-left: 5px;
+		border-radius: 4px;
+		height: 17px;
+		width: 17px;
+		border: 1px solid var(--lines-color);
+		background-color: var(--secondary-bg-color);
+	}
+
+	/* When the checkbox is checked, add a blue background */
+	& input:checked ~ .checkmark {
+		background-color: var(--purple);
+	}
+
+	/* Style the checkmark/indicator */
+	.checkmark:after {
+		content: "";
+		position: absolute;
+		opacity: 0;
+		left: 30%;
+		top: 1px;
+		width: 5px;
+		height: 10px;
+		border: solid white;
+		border-width: 0 2.5px 2.5px 0;
+		-webkit-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+	/* Show the checkmark when checked */
+	& input:checked ~ .checkmark:after {
+		opacity: 1;
+	}
+}
+
+// 	/* Creating a custom checkbox
+//         based on demand */
+// 	.custom-checkbox {
+// 		position: absolute;
+// 		top: 0;
+// 		left: 0;
+// 		height: 25px;
+// 		width: 25px;
+// 		margin-right: 10px;
+// 		cursor: pointer;
+// 		background-color: var(--main-bg-color);
+// 	}
+
+// 	/* Specify the background color to be
+//         shown when hovering over checkbox */
+// 	// .main:hover input ~ .custom-checkbox {
+// 	// 	background-color: yellow;
+// 	// }
+
+// 	/* Specify the background color to be
+//         shown when checkbox is active */
+// 	// .main input:active ~ .custom-checkbox {
+// 	// 	background-color: red;
+// 	// }
+
+// 	/* Specify the background color to be
+//         shown when checkbox is checked */
+// 	.main input:checked ~ .custom-checkbox {
+// 		background-color: var(--purple);
+// 	}
+
+// 	/* Checkmark to be shown in checkbox */
+// 	/* It is not be shown when not checked */
+// 	.custom-checkbox:after {
+// 		content: "";
+// 		position: absolute;
+// 		display: none;
+// 	}
+
+// 	/* Display checkmark when checked */
+// 	.main input:checked ~ .custom-checkbox:after {
+// 		display: block;
+// 	}
+
+// 	/* Styling the checkmark using webkit */
+// 	/* Rotated the rectangle by 45 degree and
+//         showing only two border to make it look
+//         like a tickmark */
+// 	.main .custom-checkbox:after {
+// 		left: 8px;
+// 		bottom: 5px;
+// 		width: 6px;
+// 		height: 12px;
+// 		border: solid white;
+// 		border-width: 0 4px 4px 0;
+// 		-webkit-transform: rotate(45deg);
+// 		-ms-transform: rotate(45deg);
+// 		transform: rotate(45deg);
+// 	}
+// }
+
+@media only screen and (min-width: 768px) {
+	.btn-subtask:hover {
+		text-decoration: line-through;
+		color: var(--medium-grey);
+		.checkmark {
+			background-color: var(--purple);
+			&:after {
+				opacity: 1;
+			}
+		}
 	}
 }

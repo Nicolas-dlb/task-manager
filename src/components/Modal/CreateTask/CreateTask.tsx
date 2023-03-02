@@ -23,24 +23,17 @@ interface CreateTaskProps {
 }
 
 function CreateTask({ task }: CreateTaskProps) {
-	const [currentTask, setCurrentTask] = useState<TaskT>();
-	const [title, setTitle] = useState("");
+	const [currentTask, setCurrentTask] = useState<TaskT | undefined>(task);
+	const [title, setTitle] = useState(task?.title || "");
 	const [titleError, setTitleError] = useState(false);
-	const [description, setDescription] = useState("");
-	const [subtasks, setSubtasks] = useState<SubtaskT[]>(() => createSubtasks(2));
-	const [status, setStatus] = useState("");
+	const [description, setDescription] = useState(task?.description || "");
+	const [subtasks, setSubtasks] = useState<SubtaskT[]>(
+		task?.subtasks || createSubtasks(2)
+	);
+	const [status, setStatus] = useState(task?.status || "");
 	const { editTask, addTask } = useTasks();
 	const { setModalComponent } = useContext(ModalContext);
 	const ref = useOutsideClick(() => setModalComponent(null));
-
-	useEffect(() => {
-		if (!task) return;
-
-		setTitle(task.title);
-		setDescription(task.description);
-		task.subtasks.length && setSubtasks(task.subtasks);
-		setStatus(task.status);
-	}, [task]);
 
 	useEffect(() => {
 		titleError && title && setTitleError(false);

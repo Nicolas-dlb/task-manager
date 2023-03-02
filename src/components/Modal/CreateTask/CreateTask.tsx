@@ -34,12 +34,12 @@ function CreateTask({ task }: CreateTaskProps) {
 	const ref = useOutsideClick(() => setModalComponent(null));
 
 	useEffect(() => {
-		if (task) {
-			setTitle(task.title);
-			setDescription(task.description);
-			task.subtasks.length && setSubtasks(task.subtasks);
-			setStatus(task.status);
-		}
+		if (!task) return;
+
+		setTitle(task.title);
+		setDescription(task.description);
+		task.subtasks.length && setSubtasks(task.subtasks);
+		setStatus(task.status);
 	}, [task]);
 
 	useEffect(() => {
@@ -75,8 +75,10 @@ function CreateTask({ task }: CreateTaskProps) {
 		[subtasks]
 	);
 
-	const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) =>
-		setTitle(e.target.value);
+	const handleTitleChange = useCallback(
+		(e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value),
+		[]
+	);
 
 	const handleDescriptionChange = useCallback(
 		(e: ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value),
@@ -103,7 +105,7 @@ function CreateTask({ task }: CreateTaskProps) {
 			),
 		[]
 	);
-
+	console.log("create task render");
 	return (
 		<div ref={ref} className="create-task">
 			<h2>{task ? "Edit Task" : "Create Task"}</h2>

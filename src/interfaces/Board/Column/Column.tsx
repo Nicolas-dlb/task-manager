@@ -28,7 +28,6 @@ function Column({ column }: ColumnProps) {
 					<div
 						style={{
 							height: "100vh",
-
 							display: "flex",
 							alignItems: "flex-start",
 							flexDirection: "column",

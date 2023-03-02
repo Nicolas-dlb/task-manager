@@ -45,22 +45,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-		<script defer>
-			(function () {
-				const classes = document.body.classList;
-				let timer = 0;
-				window.addEventListener("resize", function () {
-					if (timer) {
-						clearTimeout(timer);
-						timer = null;
-					} else classes.add("stop-transitions");
-
-					timer = setTimeout(() => {
-						classes.remove("stop-transitions");
-						timer = null;
-					}, 100);
-				});
-			})();
-		</script>
 	</body>
 </html>

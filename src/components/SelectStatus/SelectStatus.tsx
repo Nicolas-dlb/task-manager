@@ -1,10 +1,4 @@
-import React, {
-	useState,
-	useEffect,
-	useContext,
-	Dispatch,
-	SetStateAction,
-} from "react";
+import React, { useContext, Dispatch, SetStateAction, useMemo } from "react";
 import { BoardsContext } from "../../utils/providers/BoardsProvider";
 import Dropdown from "../Dropdown/Dropdown";
 interface SelectStatusProps {
@@ -14,12 +8,10 @@ interface SelectStatusProps {
 
 function SelectStatus({ status, setStatus }: SelectStatusProps) {
 	const { selectedBoard } = useContext(BoardsContext);
-	const [options, setOptions] = useState<string[]>([]);
-
-	useEffect(() => {
-		const boardStatus = selectedBoard?.columns.map((column) => column.name);
-		setOptions(boardStatus);
-	}, [selectedBoard]);
+	const options = useMemo<string[]>(
+		() => selectedBoard?.columns?.map((column) => column.name),
+		[selectedBoard?.columns]
+	);
 
 	return (
 		<Dropdown selected={status} setSelected={setStatus} options={options} />

@@ -63,8 +63,6 @@
 
 @media screen and (min-width: 768px) {
 	.board {
-		transition: all 0s ease;
-		-webkit-transition: all 0s ease;
 		padding-left: 240px;
 
 		&.close {

@@ -119,16 +119,3 @@
 // 		transform: rotate(45deg);
 // 	}
 // }
-
-@media only screen and (min-width: 768px) {
-	.btn-subtask:hover {
-		text-decoration: line-through;
-		color: var(--medium-grey);
-		.checkmark {
-			background-color: var(--purple);
-			&:after {
-				opacity: 1;
-			}
-		}
-	}
-}

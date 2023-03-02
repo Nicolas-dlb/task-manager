@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, useCallback } from "react";
 import { ReactComponent as CrossIcon } from "../../assets/icon-cross.svg";
 import "./RemovableInput.scss";
 
@@ -17,10 +17,12 @@ function RemovableInput({
 	value,
 	index,
 }: RemovableInputProps) {
-	const deleteItem = () => onDelete(index);
+	const deleteItem = useCallback(() => onDelete(index), [index, onDelete]);
 
-	const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
-		onChange(e.target.value, index);
+	const handleChange = useCallback(
+		(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value, index),
+		[index, onChange]
+	);
 
 	return (
 		<div className="removable-input">

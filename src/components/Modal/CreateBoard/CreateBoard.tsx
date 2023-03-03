@@ -24,17 +24,12 @@ interface CreateBoardProps {
 function CreateBoard({ board }: CreateBoardProps) {
 	const { setModalComponent } = useContext(ModalContext);
 	const { setBoards } = useContext(BoardsContext);
-	const [name, setName] = useState("");
+	const [name, setName] = useState(board?.name || "");
 	const [nameError, setNameError] = useState(false);
-	const [columns, setColumns] = useState<ColumnT[]>(() => createColumns(2));
+	const [columns, setColumns] = useState<ColumnT[]>(
+		board?.columns || createColumns(2)
+	);
 	const ref = useOutsideClick(() => setModalComponent(null));
-
-	useEffect(() => {
-		if (board) {
-			setName(board.name);
-			board.columns.length && setColumns(board.columns);
-		}
-	}, [board]);
 
 	const newBoard = useMemo(() => {
 		return {
@@ -44,7 +39,7 @@ function CreateBoard({ board }: CreateBoardProps) {
 		};
 	}, [board, name, columns]);
 
-	const createBoard = () => {
+	const createBoard = useCallback(() => {
 		if (!name) {
 			setNameError(true);
 			return;
@@ -53,17 +48,13 @@ function CreateBoard({ board }: CreateBoardProps) {
 			setBoards((prev) => [...prev, newBoard]);
 		} else {
 			setBoards((prev) =>
-				prev.map((boardItem) => {
-					if (boardItem.id === board.id) {
-						console.log(newBoard);
-						return newBoard;
-					}
-					return boardItem;
-				})
+				prev.map((boardItem) =>
+					boardItem.id === board.id ? newBoard : boardItem
+				)
 			);
 		}
 		setModalComponent(null);
-	};
+	}, [board, name, newBoard, setBoards, setModalComponent]);
 
 	const addColumn = useCallback(
 		() => setColumns([...columns, ...createColumns(1)]),

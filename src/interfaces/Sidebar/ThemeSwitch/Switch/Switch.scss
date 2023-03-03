@@ -1,12 +1,14 @@
-.switch {
+.btn-switch {
 	background-color: var(--purple);
-	width: 35px;
+	width: 40px;
 	height: 15px;
-	padding: 3px;
+	padding: 10px 3px;
 	border-radius: 10px;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
+	cursor: pointer;
+	border: none;
 
 	&.light-selected {
 		justify-content: flex-start;
@@ -16,12 +18,10 @@
 		justify-content: flex-end;
 	}
 
-	.btn-switch {
+	.switch-icon {
 		border-radius: 50%;
 		width: 15px;
 		height: 15px;
-		border: none;
-		cursor: pointer;
-		transition: all 0.3s ease;
+		background-color: white;
 	}
 }

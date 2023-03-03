@@ -18,20 +18,16 @@ function Board() {
 		setModalComponent(<CreateColumn />);
 	}, [setModalComponent]);
 
-	const onDragEnd = (result: any) => {
-		if (!result.destination) {
-			return;
-		}
+	const onDragEnd = useCallback(
+		(result: any) => {
+			if (!result.destination) {
+				return;
+			}
 
-		const sourceIndex = result.source.index;
-		const destIndex = result.destination.index;
-		let updatedColumns: ColumnT[];
-		if (result.type === "column") {
-			const columns = Array.from(selectedBoard.columns);
-			const [removed] = columns.splice(sourceIndex, 1);
-			columns.splice(destIndex, 0, removed);
-			// TODO: update the state of the columns
-		} else {
+			const sourceIndex = result.source.index;
+			const destIndex = result.destination.index;
+			let updatedColumns: ColumnT[];
+
 			const sourceColumn = selectedBoard.columns.find(
 				(column) => column.id === result.source.droppableId
 			) as ColumnT;
@@ -70,13 +66,12 @@ function Board() {
 					tasks: destTasks,
 				};
 
-				const updatedTasks = updatedDestColumn.tasks.map((task) => {
+				updatedDestColumn.tasks.map((task) => {
 					if (task.id === result.draggableId && updatedDestColumn) {
 						task.status = updatedDestColumn.name;
 					}
 					return task;
 				});
-				console.log(updatedTasks);
 
 				updatedColumns = selectedBoard.columns.map((column) => {
 					if (column.id === updatedSourceColumn.id) {
@@ -87,15 +82,14 @@ function Board() {
 						return column;
 					}
 				}) as ColumnT[];
-
-				// TODO: update the state of the columns
 			}
 			setSelectedBoard((prev) => {
 				const newBoard = { ...prev, columns: updatedColumns };
 				return newBoard;
 			});
-		}
-	};
+		},
+		[selectedBoard.columns, setSelectedBoard]
+	);
 
 	return (
 		<section className={`board ${!isSidebarOpen && "close"}`}>

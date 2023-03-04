@@ -18,7 +18,7 @@ interface SubtaskProps {
 function Subtask({ subtask, currentTask, setCurrentTask }: SubtaskProps) {
 	const [checked, setChecked] = useState(subtask.isCompleted);
 	const { editTask } = useTasks();
-	console.log("subtask render");
+
 	const toggleCompleted = useCallback(() => {
 		const newTask = {
 			...currentTask,

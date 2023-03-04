@@ -27,7 +27,7 @@ function Column({ column }: ColumnProps) {
 				{(provided) => (
 					<div
 						style={{
-							height: "100vh",
+							marginBottom: "20px",
 							display: "flex",
 							alignItems: "flex-start",
 							flexDirection: "column",

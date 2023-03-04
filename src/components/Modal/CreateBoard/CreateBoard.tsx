@@ -23,7 +23,7 @@ interface CreateBoardProps {
 
 function CreateBoard({ board }: CreateBoardProps) {
 	const { setModalComponent } = useContext(ModalContext);
-	const { setBoards } = useContext(BoardsContext);
+	const { setBoards, setSelectedBoard } = useContext(BoardsContext);
 	const [name, setName] = useState(board?.name || "");
 	const [nameError, setNameError] = useState(false);
 	const [columns, setColumns] = useState<ColumnT[]>(
@@ -46,6 +46,7 @@ function CreateBoard({ board }: CreateBoardProps) {
 		}
 		if (!board) {
 			setBoards((prev) => [...prev, newBoard]);
+			setSelectedBoard(newBoard);
 		} else {
 			setBoards((prev) =>
 				prev.map((boardItem) =>
@@ -54,7 +55,7 @@ function CreateBoard({ board }: CreateBoardProps) {
 			);
 		}
 		setModalComponent(null);
-	}, [board, name, newBoard, setBoards, setModalComponent]);
+	}, [board, name, newBoard, setBoards, setModalComponent, setSelectedBoard]);
 
 	const addColumn = useCallback(
 		() => setColumns([...columns, ...createColumns(1)]),

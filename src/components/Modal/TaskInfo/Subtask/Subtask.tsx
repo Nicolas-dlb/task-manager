@@ -1,10 +1,4 @@
-import {
-	useState,
-	useEffect,
-	SetStateAction,
-	Dispatch,
-	useCallback,
-} from "react";
+import { useState, SetStateAction, Dispatch, useCallback, memo } from "react";
 import useTasks from "../../../../utils/hooks/useTasks";
 import { SubtaskT, TaskT } from "../../../../utils/types/types";
 import "./Subtask.scss";
@@ -29,6 +23,7 @@ function Subtask({ subtask, currentTask, setCurrentTask }: SubtaskProps) {
 				return sub;
 			}),
 		};
+
 		editTask(currentTask, newTask);
 		setChecked(!checked);
 		setCurrentTask(newTask);
@@ -40,7 +35,7 @@ function Subtask({ subtask, currentTask, setCurrentTask }: SubtaskProps) {
 			onClick={toggleCompleted}
 			className={`btn-subtask ${checked && "checked"}`}
 		>
-			<input type="checkbox" checked={checked} />
+			<input type="checkbox" onChange={toggleCompleted} checked={checked} />
 			<span className="checkmark"></span>
 
 			<h4 className="subtask-title">{subtask.title}</h4>

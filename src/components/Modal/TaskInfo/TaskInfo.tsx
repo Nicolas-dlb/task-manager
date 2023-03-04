@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useCallback } from "react";
 import verticalEllipsis from "../../../assets/icon-vertical-ellipsis.svg";
 import "./TaskInfo.scss";
 import Subtask from "./Subtask/Subtask";
@@ -33,8 +33,10 @@ function TaskInfo({ task }: TaskInfoProps) {
 		}
 	}, [currentTask, editTask, status]);
 
-	const openEditTaskModal = () =>
-		setModalComponent(<CreateTask task={currentTask} />);
+	const openEditTaskModal = useCallback(
+		() => setModalComponent(<CreateTask task={currentTask} />),
+		[currentTask, setModalComponent]
+	);
 
 	const displayCompletedSubtasksNumber = !task.subtasks.length
 		? "No subtasks"
@@ -45,14 +47,9 @@ function TaskInfo({ task }: TaskInfoProps) {
 		<div ref={ref} className="task-info">
 			<div className="task-info-header">
 				<h3>{currentTask?.title}</h3>
-				<img
-					src={verticalEllipsis}
-					onClick={openEditTaskModal}
-					className="vertical-ellipsis"
-					height="16px"
-					width="3.6px"
-					alt=""
-				/>
+				<button type="button" className="btn-edit" onClick={openEditTaskModal}>
+					<img src={verticalEllipsis} height="16px" width="3.6px" alt="" />
+				</button>
 			</div>
 			<p className="task-info-description">{task.description}</p>
 			<h3 className="task-info-label">{displayCompletedSubtasksNumber}</h3>

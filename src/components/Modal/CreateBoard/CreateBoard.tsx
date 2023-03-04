@@ -1,5 +1,6 @@
-import React, {
+import {
 	ChangeEvent,
+	FormEvent,
 	useCallback,
 	useContext,
 	useEffect,
@@ -39,23 +40,27 @@ function CreateBoard({ board }: CreateBoardProps) {
 		};
 	}, [board, name, columns]);
 
-	const createBoard = useCallback(() => {
-		if (!name) {
-			setNameError(true);
-			return;
-		}
-		if (!board) {
-			setBoards((prev) => [...prev, newBoard]);
-			setSelectedBoard(newBoard);
-		} else {
-			setBoards((prev) =>
-				prev.map((boardItem) =>
-					boardItem.id === board.id ? newBoard : boardItem
-				)
-			);
-		}
-		setModalComponent(null);
-	}, [board, name, newBoard, setBoards, setModalComponent, setSelectedBoard]);
+	const createBoard = useCallback(
+		(e: FormEvent<HTMLFormElement>) => {
+			e.preventDefault();
+			if (!name) {
+				setNameError(true);
+				return;
+			}
+			if (!board) {
+				setBoards((prev) => [...prev, newBoard]);
+				setSelectedBoard(newBoard);
+			} else {
+				setBoards((prev) =>
+					prev.map((boardItem) =>
+						boardItem.id === board.id ? newBoard : boardItem
+					)
+				);
+			}
+			setModalComponent(null);
+		},
+		[board, name, newBoard, setBoards, setModalComponent, setSelectedBoard]
+	);
 
 	const addColumn = useCallback(
 		() => setColumns([...columns, ...createColumns(1)]),
@@ -90,32 +95,32 @@ function CreateBoard({ board }: CreateBoardProps) {
 	return (
 		<div ref={ref} className="create-board">
 			<h2>{board ? "Edit board" : "Add new board"}</h2>
-			<div className="property">
-				<label htmlFor="name">Board Name</label>
-				<InputWithError
-					value={name}
-					error={nameError}
-					onChange={handleNameChange}
-					placeholder="e.g. Web Design"
-				/>
-			</div>
-			<div className="property">
-				<label>Board Columns</label>
-				{columns?.map((column, index) => (
-					<RemovableInput
-						key={column.id}
-						placeholder="e.g. Todo"
-						value={column.name}
-						index={index}
-						onChange={handleColumnChange}
-						onDelete={deleteColumn}
+			<form className="create-board-form" onSubmit={createBoard}>
+				<div className="property">
+					<label htmlFor="name">Board Name</label>
+					<InputWithError
+						value={name}
+						error={nameError}
+						onChange={handleNameChange}
+						placeholder="e.g. Web Design"
 					/>
-				))}
-				<ButtonAdd item="column" onClick={addColumn} />
-			</div>
-			<ButtonCreate onClick={createBoard}>
-				{board ? "Save Changes" : "Create Board"}
-			</ButtonCreate>
+				</div>
+				<div className="property">
+					<label>Board Columns</label>
+					{columns?.map((column, index) => (
+						<RemovableInput
+							key={column.id}
+							placeholder="e.g. Todo"
+							value={column.name}
+							index={index}
+							onChange={handleColumnChange}
+							onDelete={deleteColumn}
+						/>
+					))}
+					<ButtonAdd item="column" onClick={addColumn} />
+				</div>
+				<ButtonCreate>{board ? "Save Changes" : "Create Board"}</ButtonCreate>
+			</form>
 		</div>
 	);
 }

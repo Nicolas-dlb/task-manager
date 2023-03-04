@@ -9,4 +9,12 @@
 	gap: 13px;
 	width: 80%;
 	max-width: 350px;
+	.create-column-form {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		gap: 13px;
+		width: 100%;
+	}
 }

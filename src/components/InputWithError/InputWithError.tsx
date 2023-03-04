@@ -2,6 +2,7 @@ import { ChangeEvent } from "react";
 import "./InputWithError.scss";
 
 interface InputWithErrorProps {
+	id?: string;
 	value: string;
 	error: boolean;
 	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -10,6 +11,7 @@ interface InputWithErrorProps {
 }
 
 function InputWithError({
+	id,
 	value,
 	error,
 	onChange,
@@ -19,6 +21,7 @@ function InputWithError({
 	return (
 		<div className={`input-container ${error && "error"}`}>
 			<input
+				id={id}
 				placeholder={placeholder}
 				type="text"
 				spellCheck={false}

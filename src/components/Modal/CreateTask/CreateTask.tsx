@@ -5,6 +5,7 @@ import {
 	useMemo,
 	ChangeEvent,
 	useCallback,
+	useId,
 } from "react";
 import useOutsideClick from "../../../utils/hooks/useOutsideClick";
 import "./CreateTask.scss";
@@ -33,7 +34,10 @@ function CreateTask({ task }: CreateTaskProps) {
 	const [status, setStatus] = useState(task?.status ? task?.status : "");
 	const { editTask, addTask } = useTasks();
 	const { setModalComponent } = useContext(ModalContext);
+
 	const ref = useOutsideClick(() => setModalComponent(null));
+
+	const id = useId();
 
 	useEffect(() => {
 		titleError && title && setTitleError(false);
@@ -49,19 +53,23 @@ function CreateTask({ task }: CreateTaskProps) {
 		};
 	}, [title, description, subtasks, status, task]);
 
-	const createTask = useCallback(() => {
-		if (!title) {
-			setTitleError(true);
-			return;
-		}
-		if (task) {
-			editTask(currentTask ? currentTask : task, newTask);
-		} else {
-			addTask(newTask);
-		}
-		setCurrentTask(newTask);
-		setModalComponent(null);
-	}, [addTask, currentTask, editTask, newTask, setModalComponent, task, title]);
+	const createTask = useCallback(
+		(e: any) => {
+			e.preventDefault();
+			if (!title) {
+				setTitleError(true);
+				return;
+			}
+			if (task) {
+				editTask(currentTask ? currentTask : task, newTask);
+			} else {
+				addTask(newTask);
+			}
+			setCurrentTask(newTask);
+			setModalComponent(null);
+		},
+		[addTask, currentTask, editTask, newTask, setModalComponent, task, title]
+	);
 
 	const addSubtask = useCallback(
 		() => setSubtasks([...subtasks, ...createSubtasks(1)]),
@@ -102,44 +110,53 @@ function CreateTask({ task }: CreateTaskProps) {
 	return (
 		<div ref={ref} className="create-task">
 			<h2>{task ? "Edit Task" : "Create Task"}</h2>
-			<div className="create-task-property">
-				<p className="create-task-label">Title</p>
-				<InputWithError
-					error={titleError}
-					placeholder="e.g. Take coffee break"
-					value={title}
-					onChange={handleTitleChange}
-				/>
-			</div>
-			<div className="create-task-property">
-				<p className="create-task-label">Description</p>
-				<textarea
-					placeholder="e.g. It's always good to take a break. This 15 minute break will  recharge the batteries a little."
-					spellCheck={false}
-					className="create-task-description"
-					onChange={handleDescriptionChange}
-					value={description}
-				/>
-			</div>
-			<div className="create-task-property">
-				<p className="create-task-label">Subtasks</p>
-				{subtasks?.map((subtask, index) => (
-					<RemovableInput
-						key={subtask.id}
+
+			<form className="create-task-form" onSubmit={createTask}>
+				<div className="create-task-property">
+					<label htmlFor={`${id}-title`} className="create-task-label">
+						Title
+					</label>
+					<InputWithError
+						error={titleError}
 						placeholder="e.g. Take coffee break"
-						value={subtask.title}
-						index={index}
-						onChange={handleSubtaskChange}
-						onDelete={deleteSubtask}
+						value={title}
+						onChange={handleTitleChange}
+						id={`${id}-title`}
 					/>
-				))}
-			</div>
-			<ButtonAdd item="subtask" onClick={addSubtask} />
-			<div className="create-task-property">
-				<p className="create-task-label">Status</p>
-				<SelectStatus status={status} setStatus={setStatus} />
-			</div>
-			<ButtonCreate onClick={createTask}>Create Task</ButtonCreate>
+				</div>
+				<div className="create-task-property">
+					<label htmlFor={`${id}-description`} className="create-task-label">
+						Description
+					</label>
+					<textarea
+						placeholder="e.g. It's always good to take a break. This 15 minute break will  recharge the batteries a little."
+						spellCheck={false}
+						className="create-task-description"
+						onChange={handleDescriptionChange}
+						value={description}
+						id={`${id}-description`}
+					/>
+				</div>
+				<div className="create-task-property">
+					<label className="create-task-label">Subtasks</label>
+					{subtasks?.map((subtask, index) => (
+						<RemovableInput
+							key={subtask.id}
+							placeholder="e.g. Take coffee break"
+							value={subtask.title}
+							index={index}
+							onChange={handleSubtaskChange}
+							onDelete={deleteSubtask}
+						/>
+					))}
+				</div>
+				<ButtonAdd item="subtask" onClick={addSubtask} />
+				<div className="create-task-property">
+					<p className="create-task-label">Status</p>
+					<SelectStatus status={status} setStatus={setStatus} />
+				</div>
+				<ButtonCreate>Create Task</ButtonCreate>
+			</form>
 		</div>
 	);
 }

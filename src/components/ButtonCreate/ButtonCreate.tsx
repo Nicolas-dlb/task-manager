@@ -6,9 +6,9 @@ interface ButtonCreateProps {
 	children?: string;
 }
 
-function ButtonCreate({ onClick, children }: ButtonCreateProps) {
+function ButtonCreate({ children }: ButtonCreateProps) {
 	return (
-		<button onClick={onClick} className="btn-create">
+		<button type="submit" className="btn-create">
 			<h3>{children}</h3>
 		</button>
 	);

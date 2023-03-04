@@ -1,5 +1,6 @@
-import React, {
+import {
 	ChangeEvent,
+	FormEvent,
 	useCallback,
 	useContext,
 	useEffect,
@@ -23,17 +24,21 @@ function CreateColumn() {
 		setName(e.target.value);
 	}, []);
 
-	const createColumn = useCallback(() => {
-		if (!name) {
-			setError(true);
-			return;
-		}
-		setSelectedBoard((prev) => {
-			prev.columns.push({ id: uniqueId(), name, tasks: [] });
-			return prev;
-		});
-		setModalComponent(null);
-	}, [name, setModalComponent, setSelectedBoard]);
+	const createColumn = useCallback(
+		(e: FormEvent<HTMLFormElement>) => {
+			e.preventDefault();
+			if (!name) {
+				setError(true);
+				return;
+			}
+			setSelectedBoard((prev) => {
+				prev.columns.push({ id: uniqueId(), name, tasks: [] });
+				return prev;
+			});
+			setModalComponent(null);
+		},
+		[name, setModalComponent, setSelectedBoard]
+	);
 
 	useEffect(() => {
 		error && name && setError(false);
@@ -42,13 +47,15 @@ function CreateColumn() {
 	return (
 		<div ref={modal} className="create-column">
 			<h3>Create Column</h3>
-			<InputWithError
-				value={name}
-				error={error}
-				onChange={handleNameChange}
-				placeholder="e.g Todo"
-			/>
-			<ButtonCreate onClick={createColumn}>Create column</ButtonCreate>
+			<form className="create-column-form" onSubmit={createColumn}>
+				<InputWithError
+					value={name}
+					error={error}
+					onChange={handleNameChange}
+					placeholder="e.g Todo"
+				/>
+				<ButtonCreate>Create column</ButtonCreate>
+			</form>
 		</div>
 	);
 }

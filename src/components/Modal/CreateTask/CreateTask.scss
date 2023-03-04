@@ -10,31 +10,40 @@
 	max-width: 400px;
 	gap: 13px;
 
-	.create-task-property {
+	.create-task-form {
+		width: 100%;
 		display: flex;
 		flex-direction: column;
-		gap: 5px;
-		width: 100%;
-	}
-
-	.create-task-label {
-		color: var(--label-color);
-	}
-
-	.create-task-description {
-		height: 100px;
-	}
-
-	.create-task-subtask {
-		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		justify-content: center;
-		width: 100%;
+		gap: 10px;
 
-		.create-task-delete-subtask {
-			cursor: pointer;
-			margin-left: 10px;
-			scale: 0.9;
+		.create-task-property {
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+			width: 100%;
+		}
+
+		.create-task-label {
+			color: var(--label-color);
+		}
+
+		.create-task-description {
+			height: 100px;
+		}
+
+		.create-task-subtask {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+
+			.create-task-delete-subtask {
+				cursor: pointer;
+				margin-left: 10px;
+				scale: 0.9;
+			}
 		}
 	}
 }

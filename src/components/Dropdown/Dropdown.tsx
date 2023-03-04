@@ -42,7 +42,9 @@ function Dropdown({ selected, setSelected, options }: DropdownProps) {
 	return (
 		<div ref={ref} className="dropdown">
 			<button
+				type="button"
 				onClick={toggleMenu}
+				aria-label="dropdown"
 				disabled={!filteredOptions.length}
 				className="btn-dropdown"
 			>
@@ -53,6 +55,8 @@ function Dropdown({ selected, setSelected, options }: DropdownProps) {
 				{filteredOptions?.map((option) => (
 					<button
 						key={option}
+						type="button"
+						aria-label="dropdown option"
 						className="dropdown-option"
 						onClick={() => selectOption(option)}
 					>

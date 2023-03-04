@@ -5,7 +5,7 @@ import { ThemeContext } from "../../utils/providers/ThemeProvider";
 import Board from "../Board/Board";
 import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
-import "./App.css";
+import "./App.scss";
 
 function App(): JSX.Element {
 	const { theme } = useContext(ThemeContext);

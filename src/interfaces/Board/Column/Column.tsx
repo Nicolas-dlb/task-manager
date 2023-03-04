@@ -3,7 +3,7 @@ import { BoardsContext } from "../../../utils/providers/BoardsProvider";
 import { ColumnT } from "../../../utils/types/types";
 import "./Column.scss";
 import Task from "./Task/Task";
-import { Droppable, Draggable } from "react-beautiful-dnd";
+import { Droppable } from "react-beautiful-dnd";
 
 interface ColumnProps {
 	column: ColumnT;
@@ -36,18 +36,7 @@ function Column({ column }: ColumnProps) {
 						{...provided.droppableProps}
 					>
 						{column.tasks.map((task, index) => (
-							<Draggable draggableId={task.id} index={index} key={task.id}>
-								{(provided) => (
-									<div
-										style={{ width: "100%" }}
-										{...provided.draggableProps}
-										{...provided.dragHandleProps}
-										ref={provided.innerRef}
-									>
-										<Task key={task.id} task={task} />
-									</div>
-								)}
-							</Draggable>
+							<Task key={task.id} task={task} index={index} />
 						))}
 						{provided.placeholder}
 					</div>

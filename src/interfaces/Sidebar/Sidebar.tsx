@@ -9,7 +9,7 @@ function Sidebar() {
 	const { modalComponent } = useContext(ModalContext);
 	const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
 	const { width } = useWindowSize();
-	const isMobile = width < 768;
+	const isMobile = width < 1224;
 
 	useEffect(() => {
 		if (isMobile && isSidebarOpen && modalComponent) {

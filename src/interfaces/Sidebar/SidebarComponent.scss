@@ -31,13 +31,14 @@
 	}
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1224px) {
 	.sidebar {
 		width: 230px;
 		border-radius: 0;
 		height: 100%;
 		padding: 0;
 		z-index: 2;
+		position: fixed;
 		border-right: 1px solid var(--lines-color);
 
 		h3 {

@@ -12,7 +12,7 @@ import ButtonShowSidebar from "./ButtonShowSidebar/ButtonShowSidebar";
 function SidebarComponent() {
 	const { isSidebarOpen, setIsSidebarOpen } = useContext(SidebarContext);
 	const { width } = useWindowSize();
-	const isMobile = width < 768;
+	const isMobile = width < 1224;
 	const ref = useOutsideClick(
 		useCallback(
 			() => isMobile && setIsSidebarOpen(false),

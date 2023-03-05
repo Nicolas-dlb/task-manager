@@ -7,7 +7,7 @@ header {
 	height: 64px;
 	padding: 10px;
 	width: 100%;
-	position: absolute;
+	position: fixed;
 	border-bottom: 1px transparent solid;
 	z-index: 1;
 
@@ -42,7 +42,7 @@ header {
 	}
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1224px) {
 	header {
 		border-bottom: 1px var(--lines-color) solid;
 

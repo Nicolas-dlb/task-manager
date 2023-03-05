@@ -1,5 +1,5 @@
 import { useCallback, useContext } from "react";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import ButtonCreate from "../../components/ButtonCreate/ButtonCreate";
 import CreateColumn from "../../components/Modal/CreateColumn/CreateColumn";
 import { BoardsContext } from "../../utils/providers/BoardsProvider";
@@ -19,7 +19,7 @@ function Board() {
 	}, [setModalComponent]);
 
 	const onDragEnd = useCallback(
-		(result: any) => {
+		(result: DropResult) => {
 			if (!result.destination) {
 				return;
 			}
@@ -32,7 +32,7 @@ function Board() {
 				(column) => column.id === result.source.droppableId
 			) as ColumnT;
 			const destColumn = selectedBoard.columns.find(
-				(column) => column.id === result.destination.droppableId
+				(column) => column.id === result.destination!.droppableId
 			) as ColumnT;
 
 			if (sourceColumn === destColumn) {
@@ -48,8 +48,6 @@ function Board() {
 				updatedColumns = selectedBoard.columns.map((column) =>
 					column.id === updatedColumn.id ? updatedColumn : column
 				);
-
-				// TODO: update the state of the columns
 			} else {
 				const sourceTasks = Array.from(sourceColumn!.tasks);
 				const [removed] = sourceTasks.splice(sourceIndex, 1);

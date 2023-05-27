@@ -1,0 +1,70 @@
+.delete-modal {
+	color: var(--medium-grey);
+	background-color: var(--secondary-bg-color);
+	width: 70vw;
+	max-width: 400px;
+	border-radius: 5px;
+	padding: 20px;
+
+	.delete-modal__title {
+		color: var(--red);
+	}
+
+	.delete-modal__message {
+		font-size: 12px;
+		margin: 15px 0;
+	}
+
+	.delete-modal__buttons {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		margin-top: 10px;
+		gap: 15px;
+
+		button {
+			width: 100%;
+			height: 35px;
+			border: none;
+			border-radius: 30px;
+			cursor: pointer;
+			margin-top: 5px;
+
+			&.btn-delete {
+				color: white;
+				background-color: var(--red);
+				&:hover,
+				&:focus-visible {
+					background-color: var(--red-hover);
+				}
+				&:focus-visible {
+					outline: none;
+				}
+			}
+
+			&.btn-cancel {
+				background-color: var(--btn-color);
+				color: var(--purple);
+
+				&:hover,
+				&:focus-visible {
+					background-color: var(--btn-color-hover);
+					color: var(--btn-hover-text-color);
+				}
+				&:focus-visible {
+					outline: none;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 748px) {
+	.delete-modal {
+		.delete-modal__buttons {
+			flex-direction: row;
+		}
+	}
+}

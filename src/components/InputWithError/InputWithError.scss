@@ -1,0 +1,31 @@
+.input-container {
+	border-radius: 3px;
+	border: 1px solid var(--lines-color);
+	display: flex;
+	align-items: center;
+	position: relative;
+	width: 100%;
+
+	input,
+	input:focus {
+		border: none !important;
+	}
+
+	&:focus-within {
+		border: 1px solid var(--purple);
+	}
+
+	&.error {
+		border: 1px solid var(--red);
+		caret-color: var(--red);
+		&::after {
+			content: "Can't be empty";
+			font-size: 12px;
+			color: var(--red);
+			position: absolute;
+			width: fit-content;
+			margin-right: 10px;
+			right: 0;
+		}
+	}
+}

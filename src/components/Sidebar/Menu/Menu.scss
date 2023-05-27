@@ -1,0 +1,17 @@
+.menu {
+	width: 100%;
+	text-align: left;
+
+	nav {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		width: 100%;
+	}
+
+	.menu__title {
+		padding-left: 20px;
+		margin-bottom: 5px;
+		color: var(--secondary-text-color);
+	}
+}

@@ -1,0 +1,46 @@
+.create-board {
+	background-color: var(--secondary-bg-color);
+	display: flex;
+	flex-direction: column;
+	padding: 15px;
+	justify-content: center;
+	width: 70vw;
+	border-radius: 5px;
+	max-width: 400px;
+	gap: 20px;
+	color: var(--text-color);
+
+	.create-board__form {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		gap: 17px;
+
+		.create-board__property {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 7px;
+			width: 100%;
+
+			label {
+				color: var(--text-color);
+				font-weight: bold;
+				font-size: 12px;
+				width: fit-content;
+			}
+
+			.btn-add {
+				margin-top: 6px;
+			}
+			.create-board__columns {
+				display: flex;
+				flex-direction: column;
+				margin-top: 2px;
+				gap: 7px;
+			}
+		}
+	}
+}

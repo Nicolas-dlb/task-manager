@@ -1,0 +1,52 @@
+.board-title {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	width: fit-content;
+	background: none;
+	border: none;
+	font-family: inherit;
+	gap: 5px;
+
+	&:focus-visible {
+		outline: 2px solid var(--purple);
+		border-radius: 3px;
+	}
+
+	h2 {
+		font-weight: bold;
+		color: var(--text-color);
+	}
+}
+
+@media only screen and (max-width: 375px) {
+	.header__content:first-of-type {
+		flex: 1;
+		overflow: hidden;
+		justify-content: flex-start;
+		min-width: 100px;
+	}
+	.board-title {
+		min-width: 0;
+		margin-right: 10px;
+		h2 {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+}
+
+@media only screen and (min-width: 1224px) {
+	.board-title {
+		pointer-events: none;
+		img {
+			display: none;
+		}
+
+		&.sidebar-open {
+			transform: translateX(230px);
+		}
+	}
+}

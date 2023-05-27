@@ -1,0 +1,222 @@
+.auth {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100vh;
+
+	.auth__form__container {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		bottom: 40px;
+	}
+
+	.auth__form__logo {
+		margin-top: 60px;
+		fill: var(--text-color);
+		scale: 0.8;
+		&[data-theme="light"] {
+			fill: var(--purple);
+		}
+	}
+
+	.auth__form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background: var(--secondary-bg-color);
+		border-radius: 5px;
+		padding: 10px 15px;
+		gap: 7px;
+		color: var(--text-color);
+		width: 70%;
+		max-width: 300px;
+
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+		.auth__form__welcome {
+			color: var(--medium-grey);
+		}
+
+		.auth__form__title {
+			color: var(--white);
+		}
+
+		.error-message {
+			height: 20px;
+			color: var(--red);
+		}
+
+		.auth__form__input__container {
+			width: 100%;
+			text-align: left;
+
+			.auth__form__label__container {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+
+				.auth__form__label {
+					align-self: flex-start;
+					font-size: 15px;
+				}
+
+				.auth__form__label__error {
+					color: var(--red);
+					margin-right: 5px;
+					font-size: 12px;
+					height: 22px;
+				}
+			}
+
+			.auth__form__input {
+				display: flex;
+				align-items: center;
+				border: 1px solid var(--lines-color);
+				border-radius: 3px;
+				width: 100%;
+				box-sizing: border-box;
+				margin: 8px 0;
+
+				&.focused:not(.error) {
+					border: 1px solid var(--purple);
+				}
+
+				&:focus {
+					border: 1px solid var(--purple);
+				}
+
+				&:not(:focus) {
+					border: 1px solid var(--lines-color);
+				}
+
+				input {
+					width: 100%;
+					border: none;
+				}
+
+				&.error {
+					border: 1px solid var(--red);
+					caret-color: var(--red);
+
+					.auth__form__btn-show-password {
+						&:focus-visible {
+							outline-color: var(--red);
+						}
+
+						svg {
+							fill: var(--red);
+						}
+					}
+				}
+
+				.auth__form__btn-show-password {
+					background: none;
+					border: none;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					margin-right: 5px;
+					cursor: pointer;
+
+					&:focus-visible {
+						outline: 2px solid var(--purple);
+						border-radius: 2px;
+					}
+
+					.icon-show-password {
+						margin-right: 5px;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+
+		.auth__form__buttons {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-evenly;
+			margin: 5px 0;
+			width: 100%;
+			gap: 5px;
+
+			button {
+				background: var(--main-bg-color);
+				outline: none;
+				border: none;
+				color: var(--text-color);
+				padding: 8px 8px;
+				border-radius: 3px;
+				width: 100%;
+				cursor: pointer;
+				font-family: inherit;
+				font-weight: bold;
+				font-size: 13px;
+
+				&:hover,
+				&:focus-visible {
+					background: var(--purple);
+				}
+			}
+		}
+
+		.auth__form__register {
+			display: flex;
+			padding-top: 7px;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			gap: 5px;
+			font-size: 12px;
+
+			a {
+				color: var(--text-color);
+				font-weight: bold;
+				text-decoration: none;
+
+				&:hover {
+					color: var(--purple);
+				}
+				&:focus-visible {
+					outline: 2.5px solid var(--purple);
+					border-radius: 2px;
+				}
+			}
+		}
+	}
+
+	&[data-theme="light"] {
+		.auth__form .auth__form__welcome {
+			color: var(--dark-grey);
+		}
+		.auth__form__title {
+			color: var(--purple);
+		}
+		.auth__form__buttons button {
+			color: var(--dark-grey);
+
+			&:focus-visible,
+			&:hover {
+				color: var(--white);
+				background-color: var(--purple);
+			}
+		}
+
+		.auth__form__register {
+			color: var(--dark-grey);
+			a {
+				color: var(--purple);
+				&:hover {
+					color: var(--purple-hover);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+.task {
+	background-color: var(--secondary-bg-color);
+	padding: 20px;
+	border-radius: 8px;
+	cursor: pointer;
+	margin: 5px 0;
+	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	text-align: left;
+	box-sizing: border-box;
+	width: 100%;
+	border: 3px solid transparent;
+
+	&:focus-visible {
+		border: 3px solid var(--purple);
+		outline: none;
+	}
+
+	.task__title {
+		margin-bottom: 5px;
+		color: var(--text-color);
+	}
+}

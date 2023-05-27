@@ -1,0 +1,52 @@
+.removable-input {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+
+	input {
+		background-color: var(--secondary-bg-color) !important;
+	}
+
+	.drag-handle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: fit-content;
+		height: fit-content;
+		margin-right: 5px;
+		background: none;
+		border: none;
+		touch-action: none;
+		cursor: move;
+
+		&:focus-visible {
+			outline: 2px solid var(--purple);
+			border-radius: 3px;
+		}
+	}
+
+	.btn-delete {
+		background: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border: none;
+		margin: 5px;
+		cursor: pointer;
+
+		&:focus-visible {
+			outline: 2px solid var(--purple);
+			border-radius: 3px;
+		}
+
+		&:hover .delete-icon {
+			fill: var(--red);
+		}
+
+		.delete-icon {
+			scale: 0.75;
+			fill: #828fa3;
+		}
+	}
+}

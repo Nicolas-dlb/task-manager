@@ -1,0 +1,43 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+h1 {
+	font-size: 24px;
+	line-height: 30px;
+}
+h2 {
+	font-size: 18px;
+	line-height: 23px;
+}
+
+h3 {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+h4 {
+	font-size: 12px;
+	line-height: 15px;
+	font-kerning: 2.4px;
+}
+
+p,
+b {
+	color: var(--medium-grey);
+}
+
+p {
+	font-size: 13px;
+	line-height: 23px;
+}
+
+b {
+	font-size: 12px;
+	line-height: 15px;
+	font-weight: bold;
+}

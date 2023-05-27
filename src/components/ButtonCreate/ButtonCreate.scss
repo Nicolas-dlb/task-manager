@@ -1,0 +1,19 @@
+.btn-create {
+	width: 100%;
+	background-color: var(--purple);
+	border: none;
+	border-radius: 20px;
+	color: var(--white);
+	padding: 8px 7px;
+	cursor: pointer;
+	font-family: inherit;
+
+	h3 {
+		font-size: 13px;
+	}
+	&:hover,
+	&:focus-visible {
+		outline: none;
+		background: var(--purple-hover);
+	}
+}

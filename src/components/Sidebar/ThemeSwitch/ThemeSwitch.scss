@@ -1,0 +1,18 @@
+.theme-switch {
+	display: flex;
+	background-color: var(--main-bg-color);
+	border-radius: 5px;
+	padding: 10px 10px;
+	align-items: center;
+	width: 80%;
+	margin-top: 10px;
+	align-self: center;
+	justify-content: space-evenly;
+
+	.icon {
+		scale: 0.9;
+		path {
+			fill: var(--secondary-text-color);
+		}
+	}
+}

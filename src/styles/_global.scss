@@ -1,0 +1,24 @@
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+	background: transparent;
+	border: 1px solid var(--lines-color);
+	outline: none;
+	border-radius: 3px;
+	color: var(--text-color);
+	caret-color: var(--purple);
+	padding: 7px 10px;
+	resize: none;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: "Plus Jakarta Sans";
+	font-size: 13px;
+
+	&:focus {
+		border: 1px solid var(--purple);
+	}
+	&::placeholder {
+		opacity: 0.6;
+	}
+}

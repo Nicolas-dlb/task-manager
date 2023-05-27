@@ -1,0 +1,31 @@
+.board {
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	margin-top: 65px;
+	width: 100vw;
+	gap: 15px;
+	height: calc(100vh - 65px);
+	box-sizing: border-box;
+	overflow-x: scroll;
+	padding: 0 10px;
+	scrollbar-width: none;
+
+	&:focus-visible {
+		outline: 3px solid var(--purple);
+	}
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+@media screen and (min-width: 1224px) {
+	.board {
+		padding-left: 240px;
+
+		&.close {
+			padding-left: 10px;
+		}
+	}
+}

@@ -1,0 +1,78 @@
+.btn-add {
+	background-color: var(--purple);
+	border: none;
+	border-radius: 24px;
+	padding: 8px 7px;
+	cursor: pointer;
+	align-items: flex-end;
+	justify-content: center;
+	gap: 5px;
+	color: var(--white);
+	font-family: "Plus Jakarta Sans";
+	font-weight: bold;
+	display: flex;
+
+	&.btn-add-task {
+		&:hover,
+		&:focus-visible {
+			background-color: var(--purple-hover);
+			outline: none;
+		}
+		h3 {
+			display: none;
+		}
+
+		svg {
+			transform: rotate(45deg);
+			position: relative;
+			top: 1px;
+			scale: 0.6;
+			fill: white;
+		}
+	}
+
+	&.btn-add-subtask,
+	&.btn-add-column {
+		width: 100%;
+		background-color: var(--btn-color);
+		color: var(--purple);
+
+		&:hover {
+			background-color: var(--btn-color-hover);
+			color: var(--btn-hover-text-color);
+			svg path {
+				fill: var(--btn-hover-text-color);
+			}
+		}
+
+		&:focus-visible {
+			outline: 3px solid var(--purple);
+		}
+
+		h3 {
+			font-size: 13px;
+		}
+
+		svg {
+			scale: 0.65;
+			transform: rotate(45deg);
+			padding-bottom: 2px;
+			path {
+				fill: var(--purple);
+			}
+		}
+	}
+
+	&:disabled {
+		opacity: 0.3;
+		pointer-events: none;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	.btn-add.btn-add-task h3 {
+		display: inline-block;
+		font-size: 14px;
+		font-weight: 600;
+	}
+}

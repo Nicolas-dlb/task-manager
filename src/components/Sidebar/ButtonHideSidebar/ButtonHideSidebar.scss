@@ -1,0 +1,49 @@
+.btn-hide-sidebar {
+	display: none;
+}
+@media only screen and (min-width: 1224px) {
+	.btn-hide-sidebar {
+		cursor: pointer;
+		display: flex;
+		padding: 10px;
+		padding-left: 20px;
+		margin-top: 20px;
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+		border: none;
+		outline: none;
+		width: 93%;
+
+		&[data-theme="light"] {
+			color: var(--secondary-text-color);
+			background: none;
+
+			& svg path {
+				fill: var(--secondary-text-color);
+			}
+		}
+		&[data-theme="dark"] {
+			background: none;
+			color: var(--medium-grey);
+		}
+
+		&:hover,
+		&:focus-visible {
+			color: var(--white);
+			background-color: var(--purple-hover);
+
+			svg path {
+				fill: var(--white);
+			}
+		}
+
+		h4 {
+			font-size: 13px;
+			font-family: "Plus Jakarta Sans";
+			font-weight: 600;
+		}
+		svg {
+			margin-right: 10px;
+		}
+	}
+}

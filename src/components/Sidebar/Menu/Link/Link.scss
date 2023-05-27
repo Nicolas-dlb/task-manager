@@ -1,0 +1,61 @@
+.link {
+	border: none;
+	color: var(--secondary-text-color);
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	margin-top: 10px;
+	padding: 10px;
+	padding-left: 20px;
+	width: 93%;
+	cursor: pointer;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: transparent;
+	font-family: "Plus Jakarta Sans";
+
+	&:disabled {
+		opacity: 0.3;
+		pointer-events: none;
+	}
+
+	h3 {
+		font-weight: 600;
+	}
+
+	svg {
+		margin-right: 10px;
+		width: 15.86px;
+		height: 16px;
+		fill: var(--secondary-text-color);
+	}
+
+	@mixin active-colors {
+		svg {
+			fill: var(--white);
+		}
+		color: var(--white);
+	}
+
+	&.btn-create-board {
+		color: var(--purple);
+		svg {
+			fill: var(--purple);
+		}
+	}
+
+	&.active {
+		background-color: var(--purple);
+		@include active-colors;
+	}
+
+	&:hover,
+	&:focus-visible {
+		background-color: var(--purple-hover);
+		@include active-colors;
+	}
+
+	&:focus-visible {
+		outline: none;
+	}
+}

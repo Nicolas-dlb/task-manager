@@ -1,7 +1,7 @@
 ## Task Manager
 
 <a href="https://my-task-manager.web.app" markdown="1">
-<img src="./src/assets/preview.png" alt=“preview” width="400px" style="border-radius: 5px" >
+<img src="./src/assets/preview.png" alt=“preview” width="500px" >
 </a>
 
 Task management web application.

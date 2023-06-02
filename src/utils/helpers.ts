@@ -1,4 +1,4 @@
-import { Board } from "./types/types";
+import { BoardWithoutId } from "./types/types";
 
 export const stringUppercaseFirst = (string: string) =>
 	`${string}`.charAt(0).toUpperCase() + string.substr(1);
@@ -55,7 +55,7 @@ export const getDefaultBoard = () => {
 	];
 };
 
-export const addIDToData = (data: Exclude<Board, "id">[]) => {
+export const addIDToData = (data: BoardWithoutId[]) => {
 	return data.map((board) => {
 		const BoardId = crypto.randomUUID();
 		return {

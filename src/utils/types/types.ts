@@ -22,3 +22,24 @@ export interface Board {
 	name: string;
 	columns: Column[];
 }
+
+export type TaskWithoutId = {
+	title: string;
+	description: string;
+	status: string;
+	subtasks: SubtaskWithoutId[];
+};
+
+export type SubtaskWithoutId = {
+	title: string;
+	isCompleted: boolean;
+};
+
+export type ColumnWithoutId = {
+	name: string;
+	tasks: TaskWithoutId[];
+};
+export interface BoardWithoutId {
+	name: string;
+	columns: ColumnWithoutId[];
+}

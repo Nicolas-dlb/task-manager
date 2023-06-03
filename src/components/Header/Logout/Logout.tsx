@@ -9,13 +9,6 @@ function Logout() {
 
 	const handleClick = () => {
 		dispatch(setModalComponent({ type: "Disconnect" }));
-
-		// setTimeout(() => {
-		// 	dispatch(setModalComponent({ type: null }));
-		// 	dispatch(setIsSidebarOpen(false));
-		// 	setTimeout(() => dispatch(setBoards(null)), 100);
-		// 	dispatch(setSelectedBoard(0));
-		// }, 100);
 	};
 
 	return (

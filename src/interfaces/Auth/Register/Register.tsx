@@ -16,7 +16,10 @@ function Register() {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState<string>();
 
-	const { register, handleSubmit, formState } = useForm<AuthValues>();
+	const { register, handleSubmit, formState } = useForm<AuthValues>({
+		mode: "onChange",
+	});
+
 	const { errors, isSubmitting, isValid } = formState;
 
 	const { theme } = useContext(ThemeContext);

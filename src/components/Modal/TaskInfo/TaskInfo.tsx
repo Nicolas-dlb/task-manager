@@ -38,7 +38,7 @@ function TaskInfo({ task }: TaskInfoProps) {
 			<div className="task-info__header">
 				<h3 className="task-info__title">{currentTask?.title}</h3>
 				<div className="task-info__edit">
-					<Settings item={task} />
+					<Settings item={currentTask} />
 				</div>
 			</div>
 			<p className="task-info__description">{task.description}</p>

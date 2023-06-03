@@ -155,14 +155,19 @@
 				padding: 8px 8px;
 				border-radius: 3px;
 				width: 100%;
-				cursor: pointer;
+
 				font-family: inherit;
 				font-weight: bold;
 				font-size: 13px;
 
-				&:hover,
+				&:hover:not(:disabled),
 				&:focus-visible {
 					background: var(--purple);
+					cursor: pointer;
+				}
+
+				&:disabled {
+					opacity: 0.5;
 				}
 			}
 		}
@@ -203,7 +208,7 @@
 			color: var(--dark-grey);
 
 			&:focus-visible,
-			&:hover {
+			&:hover:not(:disabled) {
 				color: var(--white);
 				background-color: var(--purple);
 			}

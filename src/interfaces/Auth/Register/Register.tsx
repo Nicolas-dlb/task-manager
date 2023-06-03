@@ -17,7 +17,7 @@ function Register() {
 	const [error, setError] = useState<string>();
 
 	const { register, handleSubmit, formState } = useForm<AuthValues>();
-	const { errors, isSubmitting } = formState;
+	const { errors, isSubmitting, isValid } = formState;
 
 	const { theme } = useContext(ThemeContext);
 
@@ -117,7 +117,9 @@ function Register() {
 					{/* Trick to prevent browser autocomplete */}
 
 					<div className="auth__form__buttons">
-						<button type="submit">Create account</button>
+						<button disabled={!isValid} type="submit">
+							Create account
+						</button>
 						<button type="button" onClick={handleClickBack}>
 							Back
 						</button>

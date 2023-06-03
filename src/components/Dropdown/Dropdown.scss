@@ -24,7 +24,8 @@
 		&:disabled {
 			cursor: default;
 		}
-		&:focus {
+
+		&:hover {
 			border: 1px solid var(--purple);
 		}
 
@@ -61,12 +62,13 @@
 			font-family: "Plus Jakarta Sans";
 			cursor: pointer;
 			font-size: 13px;
-			border: 2px solid transparent;
+			border: 1px solid transparent;
 			box-sizing: border-box;
 
-			&:focus-visible {
+			&:focus-visible,
+			&:hover {
 				outline: none;
-				border: 2px solid var(--purple);
+				border: 1px solid var(--purple);
 				border-radius: 3px;
 			}
 		}

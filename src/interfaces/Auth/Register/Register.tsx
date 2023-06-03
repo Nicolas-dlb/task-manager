@@ -91,7 +91,9 @@ function Register() {
 							spellCheck={false}
 							disabled={isSubmitting}
 							autoComplete="new-email"
-							className={`auth__form__input ${errors.email && "error"}`}
+							className={`auth__form__input ${
+								(errors.email || error) && "error"
+							}`}
 							{...register("email", emailValidationSchema)}
 						/>
 						<div className="auth__form__label__container">

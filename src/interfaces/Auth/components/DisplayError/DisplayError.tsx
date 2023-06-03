@@ -14,7 +14,11 @@ function DisplayError({ errors, property }: DisplayErrorProps) {
 		return null;
 	}
 
-	return <p className="auth__form__label__error">{error?.message}</p>;
+	return (
+		<span role="alert" className="auth__form__label__error">
+			{error?.message}
+		</span>
+	);
 }
 
 export default DisplayError;
